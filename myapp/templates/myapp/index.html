@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>{% block title %}Welcome{% endblock %}</title>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
+
+  </script>
+  <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+  <script>
+
+$(document).ready(function(){     
+i=0;var str="";var d1;
+    $("#submit").click(function(e){ 
+      var text = $("#textfield").val();
+      alert(text);
+      });
+
+    $("input").keypress(function(event){
+      console.log(event.which);
+      if ( event.which == 13 || event.which ==8 || event.which==46) {
+        console.log("enter");
+        $("#textfield").val("");
+        str="";
+        i=-1;
+        }
+      $("span").text(i+=1);
+      });
+      //var d1=new Date();
+    $("input").keyup(function(event){
+      var t = $("#textfield").val();
+      console.log(t);
+      var d2=new Date();
+      if(i>1){
+      var diff=Math.abs(d2-d1);
+      console.log(diff);
+      console.log(d1);
+      str=str+" "+diff;
+      console.log(str);}
+      d1=d2;
+      var foo="wolfram";
+      if(foo.indexOf(t)!=0){
+              alert("wrong");
+              $("#textfield").val("");
+              str="";
+              i=0;
+              }
+
+      if (  event.which ==8 || event.which==46) {
+        //console.log("enter");
+        $("#textfield").val("");
+        str="";
+        i=0;
+        }
+
+      });
+  });
+
+</script>
+   
+ </head>
+ <body onload="onload();">
+ <p>  {% block main %}{% endblock %}
+ <input type ="text" name="textfield" id="textfield" value="">
+ <button id="submit">Send</button><p> keys: <span>0</span></p>
+
+  <!--<button type="button" class="btn btn-default"> Submit</button>-->
+  
+   
+ </body>
+</html>
