@@ -1,7 +1,7 @@
 beautifulsoup4==4.4.0
 bottle==0.12.8
 click==5.1
-Django==1.84
+Django==1.8.4
 django-social-auth==0.7.28
 first==2.0.1
 httplib2==0.9.1
